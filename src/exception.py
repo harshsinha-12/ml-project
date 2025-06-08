@@ -1,10 +1,11 @@
 import sys
+import logging
 
-def error_message_detail(error,error_detail: sys):
+def error_message_detail(error, error_detail: sys):
     _, _, exc_tb = error_detail.exc_info()
     file_name = exc_tb.tb_frame.f_code.co_filename
     line_number = exc_tb.tb_lineno
-    error_message = f"Error occurred in script: [{file_name}] at line number: [{line_number}] with message: [{str(error)}]".format
+    error_message = f"Error occurred in script: [{file_name}] at line number: [{line_number}] with message: [{str(error)}]"
     return error_message
 
 
@@ -17,4 +18,4 @@ class CustomException(Exception):
         return self.error_message
 
     def __repr__(self):
-        return CustomException.__name__.str() + self.error_message
+        return f"{self.__class__.__name__}: {self.error_message}"
