@@ -1,4 +1,13 @@
-pandas
 numpy
+pandas
+matplotlib
 seaborn
+scikit-learn
+catboost
+xgboost
+ipykernel
+jupyter
+python-dotenv
+pytest
+flask
 -e .
