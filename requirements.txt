@@ -9,5 +9,8 @@ ipykernel
 jupyter
 python-dotenv
 pytest
+dill
 flask
+streamlit
+plotly
 -e .
