@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  flask-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    volumes:
+      - .:/app
+    command: python application.py
+    environment:
+      - FLASK_ENV=production
+    restart: always
+    
+  streamlit-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    command: streamlit run streamlitapp.py
+    environment:
+      - STREAMLIT_SERVER_PORT=8501
+    restart: always
