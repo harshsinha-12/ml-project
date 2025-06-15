@@ -34,7 +34,6 @@ class DataTransformation:
         logging.info('Data transformation object creation started')
 
         try:
-            # Only using the features we keep after dropping the target column
             numerical_features = ['reading score', 'writing score']
             categorical_features = ['gender', 'race/ethnicity', 'parental level of education', 'lunch', 'test preparation course']
             
@@ -77,7 +76,6 @@ class DataTransformation:
             logging.info(f"Train DataFrame Columns: {train_df.columns.tolist()}")
             logging.info(f"First 2 rows of train_df:\n{train_df.head(2)}")
             
-            # Let's clean up column names
             train_df.columns = [col.strip() for col in train_df.columns]
             test_df.columns = [col.strip() for col in test_df.columns]
             
